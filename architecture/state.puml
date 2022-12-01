@@ -1,0 +1,23 @@
+@startuml
+
+[*] ---> LoggedOut : check log in status
+[*] --> LoggedIn : check log in status
+
+LoggedOut --> LoginService : request login service
+
+
+state LoginService{
+  LoginPrompt : Request credentials
+  [*] --> LoginPrompt 
+
+}
+
+  LoginPrompt --> LoggedIn
+  LoggedIn : right credentials
+  LoginPrompt --> LoginFailed
+  LoginFailed : wrong credentials
+  LoginFailed --> [*] : back to app with error message
+
+LoggedIn -> [*] : proceed to app
+
+@enduml

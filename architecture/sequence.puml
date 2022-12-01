@@ -1,0 +1,46 @@
+@startuml
+
+actor User
+participant "whoPlays" as A
+participant "Event database" as B
+participant "Spotify" as C
+ 
+
+User -> A : Find events
+activate A
+A -> B : get events for dates and city
+activate B
+B --> A : deliver filtered results
+
+deactivate B
+A -> C : get artists ID and top tracks
+
+activate C
+
+C --> A : return artists ID and top tracks
+deactivate C
+
+A -> User : display concerts and top tracks
+deactivate A
+
+... after a while ...
+
+User -> A : add event to Favorites
+A -> B : store event in Favorites
+activate B
+B --> A : return favorite events
+A -> User : display favorite events
+deactivate B
+
+User -> A : add Artists to shortlist
+activate A
+User -> A : create playlist from shortlist
+A -> C : create playlist from shortlist
+C --> A : display playlist created
+A -> User : display playlist created
+
+deactivate A
+
+
+
+@enduml
