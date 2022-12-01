@@ -1,0 +1,24 @@
+@startuml
+
+start
+
+:find events;
+:like events
+(opt);
+
+if (Artist's in Spotify?) then (yes)
+  :show tracks;
+:add tracks to shortlist;
+:create playlist;
+
+else (no)
+  :show 
+  "no tracks 
+  available";
+
+endif
+
+
+stop
+
+@enduml

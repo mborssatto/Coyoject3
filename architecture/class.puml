@@ -1,6 +1,41 @@
-@startuml Person 
-class Person {
+@startuml whoPlays Class Diagram
+class User {
   name: string
-  age: number
+  constructor(name: string)
+  favoriteEvents: [Event]
+  addToFavorites(event: Event)
 }
+
+class Event {
+  name: string
+  artists: [Artist]
+  date: number
+  city: string
+  favoritedBy: [User]
+  }
+
+class Artist {
+  name: string
+  -SpotifyID: string
+  topTracks: [Track]
+}
+
+class Track {
+  name : string
+  artist : Artist
+  -SpotifyID : string
+}
+
+class Playlist {
+  tracks: [Track]
+}
+
+User "1" ---> "0..*" Event : adds to favorites
+Event ---> "0..*" User : favorited by
+Event o--> Artist
+Artist *--> Track
+Artist --> Playlist : is added to
+Playlist --> Track : contains
+
 @enduml
+ 

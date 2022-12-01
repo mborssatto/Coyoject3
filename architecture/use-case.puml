@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+
+
+actor "User" as user
+
+package "whoPlays" {
+usecase "Find Events" as UC0
+usecase "Add Event to Favorites" as UC1
+usecase "See Favorites" as UC2
+usecase "Add to Shortlist" as UC3
+}
+
+package "Spotify" {
+  usecase "Create Playlist" as UC4
+}
+
+user --> UC0
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+
+@enduml
