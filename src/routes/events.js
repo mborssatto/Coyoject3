@@ -1,23 +1,23 @@
 const express = require('express')
-const { events } = require('../models')
+const Event = require('../models/event')
 
 const router = express.Router()
 
-/* GET events listing 
+/* TO DO REFACTOR GET events listing 
 and FILTER by CITY - WORKS with url http://localhost:3000/events?city=Berlin */
 
-router.get('/', (req, res) => {
-  let result = events
+router.get('/', async (req, res) => {
+  let result
 
   if (req.query.city) {
-    result = events.filter(event => event.city === req.query.city)
-  }
+    result = await Event.find({ city: req.query.city })
+  } else result = await Event.find()
 
   return res.render('events', { result })
 })
 
-router.get('/:id', (req, res) => {
-  const event = events[req.params.id]
+router.get('/:id', async (req, res) => {
+  const event = await Event.findById(req.params.id)
 
   if (!event)
     return res.render('error', {
@@ -29,3 +29,12 @@ router.get('/:id', (req, res) => {
 })
 
 module.exports = router
+
+// TO DO
+/*
+function filter(el) {
+  return el.date >= dateRangeStart && el.date <= dateRangeEnd && el.city === city
+}
+
+const filteredList = events.filter(filter)
+*/
