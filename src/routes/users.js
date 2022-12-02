@@ -7,14 +7,6 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   const query = {}
   res.send(await User.find(query).catch(error => console.log('Users not found, error: ', error)))
-  // OR TRY this code:
-
-  // let result = users
-
-  // if (req.query.name) {
-  //   result = users.find(user => user.name === req.query.name)
-  // }
-  // res.send(result)
 })
 
 let users
