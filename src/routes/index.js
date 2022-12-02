@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 router.get('/initialize', async (req, res) => {
   const eventOne = await Event.create({
     name: 'Festival One',
-    artists: ['Maria Bethânia', 'Caatano Veloso'],
+    artists: ['Maria Bethânia', 'Caetano Veloso'],
     date: '2022-11-01',
     venue: 'HKW',
     city: 'Berlin',
