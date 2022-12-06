@@ -51,7 +51,7 @@ class User {
   }
 }
 
-userSchema.loadClass(User)
+userSchema.loadClass(User) // loads the class User to the userSchema so that we can use its methods
 userSchema.plugin(autopopulate)
 
 module.exports = mongoose.model('User', userSchema)
