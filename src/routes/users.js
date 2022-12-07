@@ -11,12 +11,6 @@ router.get('/', async (req, res) => {
 
 let users
 
-router.get('/:userID', function (req, res, next) {
-  const user = users[req.params.userID]
-  if (user) res.send(user)
-  else res.sendStatus(404)
-})
-
 /* GET initialize */
 router.get('/initialize', async (req, res) => {
   const mihri = await User.create({ name: 'mihri', age: 35 })
@@ -30,6 +24,12 @@ router.get('/initialize', async (req, res) => {
 
   console.log(steve)
   res.sendStatus(200)
+})
+
+router.get('/:userID', function (req, res, next) {
+  const user = users[req.params.userID]
+  if (user) res.send(user)
+  else res.sendStatus(404)
 })
 
 /* POST user */
