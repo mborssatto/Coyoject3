@@ -1,6 +1,7 @@
 # Coyotiv - School of Software Engineering
 
 ## from Express + MongoDB starter Template
+
 Adding Docker.
 &nbsp;
 
@@ -12,7 +13,7 @@ I am surely learning loads though!
 
 ### Learning goal of this stage:
 
-Docker
+Automated tests.
 
 &nbsp;
 

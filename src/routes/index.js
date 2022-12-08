@@ -5,7 +5,7 @@ const router = express.Router()
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: `Mariana's project on Coyotiv's Express + Mongo starter Template` })
+  res.render('index', { title: `Mariana's project for Coyotiv's Software Engineering course` })
 })
 
 router.get('/initialize', async (req, res) => {
