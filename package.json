@@ -11,7 +11,9 @@
     "eslint:fix": "npx eslint --fix .",
     "lint": "lint-staged",
     "prepare": "husky install",
-    "test": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1"
+    "test": "jest --testEnvironment=node --verbose --forceExit --maxWorkers=1",
+    "test-watch": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1",
+    "test-coverage": " jest --collect-coverage --testEnvironment=node --forceExit --maxWorkers=1"
   },
   "husky": {
     "hooks": {
@@ -31,6 +33,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
+    "eslint-plugin-jest": "^27.1.6",
     "express": "^4.18.2",
     "http-errors": "~1.6.3",
     "mongoose": "^6.4.4",
@@ -39,7 +42,7 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "^8.19.0",
+    "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",

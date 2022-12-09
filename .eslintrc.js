@@ -12,7 +12,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
-  extends: ['airbnb-base', 'plugin:prettier/recommended', 'prettier'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended', 'prettier', 'plugin:jest/recommended'],
   plugins: ['import', 'prettier'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
