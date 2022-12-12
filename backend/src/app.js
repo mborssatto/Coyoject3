@@ -24,9 +24,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
-app.use('/', indexRouter)
-app.use('/users', usersRouter)
-app.use('/events', eventsRouter)
+app.use('/api/', indexRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/events', eventsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
