@@ -12,3 +12,5 @@ mongoose
   })
   .then(() => console.log('*****Mongo connection established via: ', connectionString))
   .catch(error => console.log('not connected:', error))
+
+  module.exports = mongoose.connection

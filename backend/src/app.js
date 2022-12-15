@@ -5,14 +5,25 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const mongoose = require('mongoose')
 
-require('./database-connection')
+const mongooseConnection = require('./database-connection')
+const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const eventsRouter = require('./routes/events')
 
 const app = express()
+
+app.use(
+  session({
+    secret: 'foo',
+    store: MongoStore.create({ clientPromise }),
+  })
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
