@@ -20,8 +20,12 @@ const app = express()
 
 app.use(
   session({
-    secret: 'foo',
-    store: MongoStore.create({ clientPromise }),
+    secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
+    store: MongoStore.create({ clientPromise, stringify: false }),
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      path: '/api',
+    },
   })
 )
 
