@@ -4,9 +4,9 @@ block content
 
   //- p #{result.map(r => r.name).join(", ")}
 
-  each item, index in result
+  each item in result
     h1 
-      a(href='/events/' + index) #{item.name} 
+      a(href='/api/events/' + item.id) #{item.name} 
     h2 #{item.artists.join(", ")}
     p #{item.date}
     p #{item.city}
