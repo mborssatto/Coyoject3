@@ -16,6 +16,7 @@ module.exports = User
 
 const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -53,5 +54,8 @@ class User {
 
 userSchema.loadClass(User) // loads the class User to the userSchema so that we can use its methods
 // userSchema.plugin(autopopulate)
+userSchema.plugin(passportLocalMongoose,{
+  usernameField: 'email',
+});
 
 module.exports = mongoose.model('User', userSchema)
