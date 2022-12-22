@@ -7,7 +7,7 @@ ADD package.json package-lock.json ./
 
 RUN npm install
 
-ADD .eslintrc.js vue.config.js ./
+ADD .eslintrc.js vue.config.js .env.production ./
 
 ADD src ./src
 ADD public ./public
