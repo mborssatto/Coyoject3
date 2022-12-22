@@ -39,7 +39,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'images', 'favicon.ico')))
-app.use(cors())
+app.use(cors({
+  origin: true,
+  credentials: true
+}))
 
 app.use('/api/', indexRouter)
 app.use('/api/users', usersRouter)
