@@ -2,6 +2,8 @@
 // @ is an alias to /src
 import axios from 'axios'
 import UserCard from '@/components/user-card.vue'
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL 
+axios.defaults.withCredentials = true
 
 export default {
   name: 'HomeView',
@@ -14,7 +16,7 @@ export default {
     }
   },
   async created() {
-    const usersRequest = await axios.get('http://localhost:3000/api/users')
+    const usersRequest = await axios.get('/api/users')
 
     this.users = usersRequest.data
   }
