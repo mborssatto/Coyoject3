@@ -1,8 +1,19 @@
+<script>
+import {mapState} from 'vuex'
+
+export default {
+  name: 'App',
+  computed: {...mapState(['user'])}
+}
+</script>
+
 <template lang="pug">
   #app
     #nav
       router-link(to="/") Home |&nbsp
-      router-link(to="/about") About
+      router-link(to="/about") About |&nbsp
+      router-link(to="/profile" v-if="user") Profile
+      router-link(to="/login" v-else) Login
     router-view
 </template>
 
@@ -10,6 +21,7 @@
 @import '@/assets/theme.scss';
 @import 'bootstrap/scss/bootstrap.scss';
 
+// This is the style to be applied to the whole app:
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
