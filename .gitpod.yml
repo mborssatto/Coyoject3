@@ -51,7 +51,8 @@ tasks:
       gp sync-await mongodb
       gp sync-await dependencies
     command: |
-      npm run dev
+      docker-compose up -d mongo
+      docker-compose up frontend backend --build
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
